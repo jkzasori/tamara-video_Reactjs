@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './video.css';
 class Video extends Component {
 	tooglePlay() {
 		if (this.props.pause) {
@@ -21,15 +21,21 @@ class Video extends Component {
 		const {
 			handleLoadedMetadata,
 			handleTimeUpdate,
+			handleSeeking,
+			handleSeeked,
 		} = this.props;
 		return (
-				 <video
-          autoPlay={this.props.autoPlay}
+				 <div className="Video">
+        <video
+          autoPlay={this.props.autoplay}
           src={this.props.src}
           ref={this.setRef}
           onLoadedMetadata={handleLoadedMetadata}
           onTimeUpdate={handleTimeUpdate}
+          onSeeking={handleSeeking}
+          onSeeked={handleSeeked}
         />
+      </div>
 			)
 	}
 }
